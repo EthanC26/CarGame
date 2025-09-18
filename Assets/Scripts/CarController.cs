@@ -22,6 +22,7 @@ public class CarController : MonoBehaviour
     private bool isBraking;
 
     private Rigidbody rb;
+    private BoxCollider bc;
 
     private void Start()
     {
@@ -92,5 +93,13 @@ public class CarController : MonoBehaviour
         UpdateSingleWheel(frontRightWheel, frontRightTransform);
         UpdateSingleWheel(rearLeftWheel, rearLeftTransform);
         UpdateSingleWheel(rearRightWheel, rearRightTransform);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("FinshLine"))
+        {
+            GameManager.Instance.AddScore(1);
+        }
     }
 }
