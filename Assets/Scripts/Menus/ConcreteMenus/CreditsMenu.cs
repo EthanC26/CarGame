@@ -12,7 +12,7 @@ public class CreditsMenu : BaseMenu
         base.Init(contex);
         state = MenuStates.Credits;
         if (backBtn) backBtn.onClick.AddListener(() => SetNextMenu(MenuStates.MainMenu));
-        creditsTitleTxt.text = "CREDITS";
-        creditsTxt.text = "TEMP";
+        creditsTitleTxt.text = "Credits Menu";
+        creditsTxt.text = "Game developed by Ethan Cullen\nThanks for playing!";
     }
 }

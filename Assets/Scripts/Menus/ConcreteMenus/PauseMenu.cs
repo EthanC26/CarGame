@@ -17,7 +17,11 @@ public class PauseMenu : BaseMenu
         state = MenuStates.Pause;
 
         if (ResumeButton) ResumeButton.onClick.AddListener(() => SetNextMenu(MenuStates.InGame));
-        if (MainMenuButton) MainMenuButton.onClick.AddListener(() => SceneManager.LoadScene("MainMenu"));
+        if (MainMenuButton)
+        {
+            MainMenuButton.onClick.AddListener(() => SceneManager.LoadScene("MainMenu"));
+            GameManager.Instance.ResetScore();
+        }
         if (quitButton) quitButton.onClick.AddListener(QuitGame);
 
         if (MenuTitle) MenuTitle.text = "Pause Menu"; // Set the title for the pause menu
